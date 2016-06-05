@@ -4,7 +4,7 @@
     $bio_link = $_POST['bio_link'];
 
     // connection to database
-    $dbh = new PDO( "mysql:host=localhost;dbname=comp-1006", "root", "root");
+    $dbh = new PDO( "mysql:host=sql.computerstudi.es;dbname=comp-1006", "gc200333254", "7aULr7wU");
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
     // build the SQL
@@ -23,4 +23,3 @@
 
     // provide confirmation
     echo "Your artist was saved successfully";
-?>

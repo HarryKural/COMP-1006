@@ -56,7 +56,7 @@
       </section>
 
       <!-- Step 3 - Upload to your web server and submit your link on Blackboard for 5 marks -->
-      
+      <!-- DONE -->
     </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>

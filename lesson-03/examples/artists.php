@@ -1,68 +1,57 @@
 <?php
 
-    $dbh = new PDO( "mysql:host=localhost;dbname=comp-1006", "root", "" );
-    $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+  $dbh = new PDO( "mysql:host=sql.computerstudi.es;dbname=comp-1006", "gc200333254", "7aULr7wU");
+  $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+  // build the SQL statement
+  $sql = 'SELECT * FROM artists';
 
-    // build the SQL statement
-    $sql = 'SELECT * FROM artists ORDER BY name';
+  // prepare, execute, and fetchAll
+  $artists = $dbh->query( $sql );
 
-   // $sth = $dbh->prepare( $sql );
-   // $sql->execute();
-   // $results = $sth->fetchAll();
+  // count the rows
+  $row_count = $artists->rowCount();
 
-    $results = $dbh->query( $sql );
-    $row_count = $results->rowCount();
-
-    $dbh = null;
+  // close the DB connection
+  $dbh = null;
 
 ?>
 
-<!DOCTYPE HTML>
-<html lang="en">
-
-<head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O" crossorigin="anonymous">
-    <title>title</title>
-</head>
-
-<body>
-<!-- This is a Bootstrap container. Get more info at http://getbootstrap.com/ -->
-<div class="container">
-    <header>
-        <h1 class="page-header">Show Artists</h1>
-    </header>
-
-    <section>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link crossorigin='anonymous' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' rel='stylesheet'>
+    <link crossorigin='anonymous' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css' integrity='sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O' rel='stylesheet'>
+    <title>All Artists</title>
+  </head>
+  <body>
+    <div class='container'>
+      <header>
+        <h3 class='page-header'>All Artists</h3>
+      </header>
+      <section>
         <?php if ( $row_count > 0 ): ?>
-        <table class="table table-striped">
+          <table class='table'>
             <thead>
-                <tr>
-                    <th>Artists Name</th>
-                    <th>Artists Bio Link</th>
-                </tr>
+              <tr>
+                <th>Artist</th>
+                <th>Bio</th>
+              </tr>
             </thead>
-
             <tbody>
-                <?php foreach ( $results as $result ): ?>
-                    <tr>
-                        <td><?= $result['name'] ?></td>
-                        <td><a href="<?= $result['bio_link'] ?>" target="_blank"><?= $result['bio_link'] ?></a></td>
-                    </tr>
-                <?php endforeach ?>
+              <?php foreach ( $artists as $artist ): ?>
+                <tr>
+                  <td><a href="artist_songs.php?id=<?= $artist['id'] ?>"><?= $artist['name'] ?></a></td>
+                  <td><a href="<?= $artist['bio_link'] ?>"><?= $artist['bio_link'] ?></a></td>
+                </tr>
+              <?php endforeach ?>
             </tbody>
-        </table>
+          </table>
         <?php else: ?>
-            <div class="alert alert-info">
-                There's no artist available.
-            </div>
+          <div class="alert alert-warning">
+            No song information to display.
+          </div>
         <?php endif ?>
-    </section>
-
-</div>
-
-<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-</body>
-
+      </section>
+    </div>
+  </body>
 </html>
