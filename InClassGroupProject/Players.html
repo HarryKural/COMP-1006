@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O" crossorigin="anonymous">
+    <title>Create A Player</title>
+
+    <h1 class="bg-warning"><strong> Create a Player </strong></h1>
+
+</head>
+<style>
+    h1
+    {
+        font-style: italic;
+        font-family: fantasy;
+        text-align: center;
+        font-size: 50px;
+    }
+
+    body
+    {
+
+        background: rgba(183,222,237,1);
+        background: -webkit-linear-gradient(rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%);
+        background: -o-linear-gradient(rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%);
+        background: linear-gradient(rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed', GradientType=0 );
+
+    }
+</style>
+<body>
+<div class="container">
+    <form action="/my-handling-form-page" method="post">
+
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name"/>
+        </div>
+
+        <div class="form-group">
+            <label for="team">Team: </label>
+            <input type="text" class="form-control" id="team" name="team_id" placeholder="Team Name"/>
+        </div>
+
+        <div class="form-group">
+            <label for="sport">Sport: </label>
+            <input type="text" class="form-control" id="sport" name="sport" placeholder="Sport"/>
+        </div>
+
+        <div class="form-group">
+            <label for="number">Player number: </label>
+            <input type="text" class="form-control" id="number" name="number" placeholder="Number"/>
+        </div>
+
+        <div class="form-group">
+            <label for="ht">Home-Town: </label>
+            <input type="text" class="form-control" id="ht" name="hometown" placeholder="Home-Town"/>
+        </div>
+
+        <div class="button">
+            <button type="submit" class="btn btn-danger"> Add Player </button>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

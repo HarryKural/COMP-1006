@@ -1,3 +1,4 @@
+USE gc200333254;
 CREATE TABLE songs (
   id int(11) NOT NULL AUTO_INCREMENT,
   title varchar(100) NOT NULL,

@@ -1,3 +1,4 @@
+USE gc200333254;
 CREATE TABLE artists (
   id int(11) NOT NULL AUTO_INCREMENT,
   name varchar(50) NOT NULL,
